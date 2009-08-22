@@ -17,6 +17,11 @@
 
 #LOCAL_CFLAGS += -E -v
 
+ifeq ($(TARGET_ARCH),ppc)
+# PPC compiler hangs on interpreter.cpp with -O2 (turn it down a bit)
+LOCAL_CFLAGS += -O1
+endif
+
 # This comment block is read by tools/webkitsync/diff.cpp
 # Don't remove it or move it. 
 # If you edit it, keep it in alphabetical order
